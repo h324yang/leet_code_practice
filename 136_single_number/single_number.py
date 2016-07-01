@@ -16,5 +16,5 @@ class Solution(object):
         return res
 
 if __name__ == "__main__":
-    data = [2,3,2,3,1]
+    data = [2,3]
     print(Solution().singleNumber(data))
