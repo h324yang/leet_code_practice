@@ -1,14 +1,11 @@
 class Solution(object):
-    def first_diff(self, num):
-        return num & ~(num - 1)
-
     def singleNumber(self, nums):
         res = 0
         g1 = 0
         g2 = 0
         for num in nums:
             res = res ^ num
-        first_diff_bit = self.first_diff(res)
+        first_diff_bit = &(res-1)
         for num in nums:
             if first_diff_bit & num == first_diff_bit:
                 g1 = g1 ^ num
