@@ -18,7 +18,10 @@ class Solution(object):
             self.memo.append(None)
 
     def traversal_check(self, node):
-        if  len(self.memo) is not 0:
+        if not self.memo:
+            if node is not None:
+                self.check = False
+        else:
             tmp = self.memo.pop(0)
             if node is not None:
                 if tmp != node.val:
@@ -28,10 +31,6 @@ class Solution(object):
             else:
                 if tmp is not None:
                     self.check = False
-        else:
-            if node is not None:
-                self.check = False
-
 
     def isSameTree(self, p, q):
         self.traversal_memo(p)
@@ -39,13 +38,13 @@ class Solution(object):
         return self.check
 
 if __name__ == "__main__":
-    # root = TreeNode(0)
-    # root.left = TreeNode(1)
-    # root.right = TreeNode(2)
-    # root.left.left = TreeNode(3)
-    # root.left.right = TreeNode(4)
-    # root.right.left = TreeNode(5)
-    # root.right.right = TreeNode(6)
+    # root1 = TreeNode(0)
+    # root1.left = TreeNode(1)
+    # root1.right = TreeNode(2)
+    # root1.left.left = TreeNode(3)
+    # root1.left.right = TreeNode(4)
+    # root1.right.left = TreeNode(5)
+    # root1.right.right = TreeNode(6)
     #
     # root2 = TreeNode(0)
     # root2.left = TreeNode(1)
@@ -55,4 +54,4 @@ if __name__ == "__main__":
     # root2.right.left = TreeNode(5)
     # root2.right.right = TreeNode(6)
     #
-    # print(Solution().isSameTree(root, root2))
+    # print(Solution().isSameTree(root1, root2))
